@@ -1,0 +1,15 @@
+title: Funes
+description: Event sourcing meta-framework for Rails
+url: ""
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

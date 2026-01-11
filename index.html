@@ -1,0 +1,78 @@
+---
+layout: default
+title: Funes - Event Sourcing Meta-Framework for Rails
+---
+
+<section class="hero">
+  <h1>Event sourcing meta-framework for Rails</h1>
+  <p class="subtitle">
+    Where history matters as much as the present. Deep conceptual
+    compression over complex architectural patterns. Built for the
+    "one person framework" philosophy.
+  </p>
+  <div class="install-cmd">gem "funes-rails"</div>
+  <div class="buttons">
+    <a href="https://github.com/funes-org/funes" class="btn btn-secondary">View on GitHub</a>
+  </div>
+</section>
+
+<section>
+  <h2>Three Core Concepts</h2>
+  <div class="concepts-grid">
+    <div class="concept">
+      <h3>Events</h3>
+      <p>Immutable facts of what happened. Historical records that never change, built on ActiveModel with validations.</p>
+    </div>
+    <div class="concept">
+      <h3>Streams</h3>
+      <p>Logical grouping of related events. The primary interface that orchestrates changes and ensures consistency.</p>
+    </div>
+    <div class="concept">
+      <h3>Projections</h3>
+      <p>Transform events into readable state. Virtual for validation, persistent for fast reads.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why Funes?</h2>
+  <ul class="benefits-list">
+    <li>Complete audit trail of all state changes</li>
+    <li>Temporal queries — "what was the balance on December 1st?"</li>
+    <li>Multiple read models derived from the same events</li>
+    <li>Safe refactoring by rebuilding projections from event log</li>
+    <li>Progressive adoption with existing ActiveRecord models</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Consistency Model</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Execution</th>
+          <th>Use Case</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Consistency</td>
+          <td>Before persist</td>
+          <td>Validate business rules</td>
+        </tr>
+        <tr>
+          <td>Transactional</td>
+          <td>Same transaction</td>
+          <td>Critical models</td>
+        </tr>
+        <tr>
+          <td>Async</td>
+          <td>Background job</td>
+          <td>Reports & analytics</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
