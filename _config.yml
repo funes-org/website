@@ -1,7 +1,7 @@
 title: Funes
 description: Event sourcing meta-framework for Rails
-url: ""
-baseurl: ""
+url: "https://funes-org.github.io"
+baseurl: "/website"
 
 # Build settings
 markdown: kramdown
