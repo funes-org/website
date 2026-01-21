@@ -44,34 +44,3 @@ title: Funes - Event Sourcing Meta-Framework for Rails
   </ul>
 </section>
 
-<section>
-  <h2>Consistency Model</h2>
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Layer</th>
-          <th>Execution</th>
-          <th>Use Case</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Consistency</td>
-          <td>Before persist</td>
-          <td>Validate business rules</td>
-        </tr>
-        <tr>
-          <td>Transactional</td>
-          <td>Same transaction</td>
-          <td>Critical models</td>
-        </tr>
-        <tr>
-          <td>Async</td>
-          <td>Background job</td>
-          <td>Reports & analytics</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
