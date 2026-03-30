@@ -3,6 +3,8 @@ description: Event sourcing meta-framework for Rails
 url: "https://funes.org"
 baseurl: ""
 
+mixpanel_token: ""
+
 # Build settings
 markdown: kramdown
 permalink: pretty
@@ -13,3 +15,4 @@ exclude:
   - Gemfile.lock
   - README.md
   - vendor
+  - _config_env.yml
