@@ -25,7 +25,10 @@
 <body>
   <header>
     <div class="header-content">
-      <a href="{{ '/' | relative_url }}" class="logo">funes</a>
+      <div class="header-brand">
+        <a href="{{ '/' | relative_url }}" class="logo">funes</a>
+        <span class="eyebrow">event sourcing · ruby on rails</span>
+      </div>
       <nav class="header-links">
         <a href="https://github.com/funes-org/funes">GitHub</a>
         <a href="https://docs.funes.org">Docs</a>
@@ -40,5 +43,26 @@
   <footer>
     <p>MIT License · <a href="https://github.com/funes-org">funes-org</a></p>
   </footer>
+
+  <script>
+    document.querySelectorAll('[data-tabs]').forEach((tabs) => {
+      const buttons = Array.from(tabs.querySelectorAll('.tab'));
+      const panels = Array.from(tabs.querySelectorAll('.tab-panel'));
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.tab;
+          buttons.forEach((b) => {
+            const active = b.dataset.tab === key;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          panels.forEach((p) => {
+            p.classList.toggle('is-active', p.dataset.panel === key);
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
