@@ -268,12 +268,18 @@ test <span class="s">"after one year, present_value reflects one year of accrued
       <summary>Will it stay fast as the event log grows?</summary>
       <div class="faq-answer">
         <p>
-          Yes — measurements consistently show that event-stream operations stay sub-linear,
-          comfortably within <code>O(n)</code> as the log grows, which is an important
-          property for medium- and long-lived streams. Treat any published figure as
-          directional rather than definitive (workloads vary, hardware matters), but the
-          overall trend stays the same. Latest measurements and methodology live in the
+          Yes — measurements consistently show that event-stream operations stay sub-linear
+          as the log grows, which is an important property for medium- and long-lived
+          streams. Treat any published figure as directional rather than definitive
+          (workloads vary, hardware matters), but the overall trend stays the same. Latest
+          measurements and methodology live in the
           <a href="https://github.com/funes-org/funes/discussions/categories/performance-measurements">performance measurements discussions</a>.
+        </p>
+        <p>
+          That said, streams cannot be undefined in size. Model the system so that every
+          stream has a sensible, bounded lifetime — a stream per order, per account period,
+          per session — rather than a single ever-growing stream that accumulates forever.
+          Good stream boundaries are part of the design, not an afterthought.
         </p>
       </div>
     </details>
@@ -288,6 +294,35 @@ test <span class="s">"after one year, present_value reflects one year of accrued
           retention policies, network governance) stays the responsibility of the
           developer or operator. The event log lives in your database, in your environment,
           configured to whatever your organization requires.
+        </p>
+        <p>
+          One friendly request, though: please don't persist PII inside an event. Events are
+          immutable by design — once written, they stay written — so any personal data you
+          drop into a payload is effectively there forever. Keep PII in mutable side tables
+          you can redact or rotate, and reference it from events by stable identifiers.
+        </p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Why not use one of the existing event-sourcing options on the market?</summary>
+      <div class="faq-answer">
+        <p>
+          Fair question — there are excellent tools out there, and we have a lot of respect
+          for them. Funes isn't trying to out-feature any of them. The bet is the opposite
+          one: most existing options reach for broader concepts (CQRS, sagas, process
+          managers, full DDD tactical patterns, dedicated event stores, message buses) that
+          are useful in their own right but sit above and around event sourcing rather than
+          inside it.
+        </p>
+        <p>
+          Funes deliberately compresses the surface area down to three primitives — events,
+          streams, projections — wrapped in a small Rails-native DSL. The goal is to remove
+          complexity rather than add more of it: keep the core idea sharp, keep the noise
+          out, and let teams pick up event sourcing without first adopting a wider
+          architectural vocabulary. If you already love the bigger toolkits, they remain
+          great choices; Funes is for teams who want the essence of event sourcing inside a
+          familiar Rails app.
         </p>
       </div>
     </details>
