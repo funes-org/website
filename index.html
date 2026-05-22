@@ -289,11 +289,10 @@ test <span class="s">"after one year, present_value reflects one year of accrued
       <div class="faq-answer">
         <p>
           No. Funes is an application-layer framework: it bridges Rails and event sourcing,
-          and nothing below that. Everything at the platform layer (encryption at rest,
-          key management, SOC 2 controls, audit logging at the infrastructure tier,
-          retention policies, network governance) stays the responsibility of the
-          developer or operator. The event log lives in your database, in your environment,
-          configured to whatever your organization requires.
+          and nothing below that. Everything at the infrastructure layer (encryption,
+          SOC 2 controls, access governance) stays the responsibility of the developer or
+          operator. The event log lives in your database, in your environment, configured
+          to whatever your organization requires.
         </p>
         <p>
           One friendly request, though: please don't persist PII inside an event. Events are
