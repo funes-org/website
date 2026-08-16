@@ -8,15 +8,6 @@
   --accent: #475569;
   --accent-hover: #1f2937;
   --link: #475569;
-  --code-bg: #f1f2f4;
-  --code-fg: #2a2a2a;
-  --code-keyword: #6d28d9;
-  --code-class: #1d4ed8;
-  --code-op: #6d28d9;
-  --code-string: #4f6a35;
-  --code-hashkey: #0d9488;
-  --code-number: #be185d;
-  --code-muted: #9aa0a6;
   --max-w: 1280px;
 }
 
@@ -210,34 +201,6 @@ h2 {
   line-height: 1.7;
 }
 
-/* DSL section */
-.dsl-lede { max-width: none; margin-bottom: 0; }
-
-/* Use-cases section */
-.use-cases-lede { max-width: none; margin-bottom: 2.5rem; }
-
-/* DSL section two-column rows */
-.dsl-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 3rem;
-  row-gap: 2rem;
-  align-items: start;
-  margin-top: 2rem;
-}
-.dsl-row + .dsl-row { margin-top: 4rem; }
-.dsl-row--reversed { grid-template-columns: 1fr 2fr; }
-.dsl-code, .dsl-copy { min-width: 0; }
-.dsl-copy h2 { margin-bottom: 1rem; }
-.dsl-copy .lede { margin-bottom: 1.25rem; }
-.dsl-copy .caption + .caption { margin-top: 1rem; }
-.dsl-divider {
-  border: 0;
-  border-top: 1px solid var(--border);
-  margin: 1.25rem 0;
-}
-.dsl-row .code-block { margin: 0; }
-
 /* Concepts grid */
 .concepts-grid {
   display: grid;
@@ -260,39 +223,8 @@ h2 {
 }
 .concepts > .lede { max-width: none; }
 .concepts-outro { margin-top: 2.5rem; margin-bottom: 0; }
+.concepts-outro + .concepts-outro { margin-top: 1.25rem; }
 
-/* Time-as-dimension section */
-.time-dim-lede { max-width: none; margin-bottom: 2.5rem; }
-.time-dim-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  column-gap: 3.5rem;
-  align-items: start;
-  margin-top: 0;
-}
-.time-dim-list { min-width: 0; }
-.time-dim-list dt {
-  font-weight: 500;
-  margin-top: 1.5rem;
-  color: var(--fg);
-}
-.time-dim-list dt:first-child { margin-top: 0; }
-.time-dim-list dd {
-  margin-top: 0.4rem;
-  color: var(--fg-muted);
-  font-size: 0.9375rem;
-  line-height: 1.7;
-}
-.time-dim-illustration {
-  display: flex;
-  justify-content: center;
-  color: var(--accent);
-}
-.time-dim-illustration svg {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-}
 .concept-num {
   color: var(--accent);
   letter-spacing: 0.04em;
@@ -315,134 +247,6 @@ h2 {
   font-size: 0.875em;
   border-radius: 2px;
   color: var(--fg);
-}
-
-/* DSL / code block */
-.code-block {
-  background: var(--code-bg);
-  color: var(--code-fg);
-  overflow: hidden;
-  margin: 0 0 1.5rem;
-  font-size: 0.8125rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.18);
-}
-.code-header {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.875rem;
-  background: rgba(0,0,0,0.04);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  font-size: 0.7rem;
-}
-.code-header .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(0,0,0,0.18);
-}
-.code-header .file {
-  margin-left: 0.6rem;
-  color: rgba(0,0,0,0.45);
-}
-.code-block pre {
-  padding: 0.875rem 1.25rem;
-  overflow-x: auto;
-  line-height: 1.5;
-}
-.code-block code { font-family: 'IBM Plex Mono', monospace; }
-.code-block .k { color: var(--code-keyword); }
-.code-block .c { color: var(--code-class); }
-.code-block .op { color: var(--code-op); }
-.code-block .s { color: var(--code-string); }
-.code-block .hk { color: var(--code-hashkey); }
-.code-block .cn { color: var(--code-number); }
-.code-block .cm { color: var(--code-muted); font-style: italic; }
-
-.caption {
-  color: var(--fg-muted);
-  font-size: 0.875rem;
-  max-width: 60ch;
-  line-height: 1.7;
-}
-
-/* Use cases / tabs */
-.tabs { margin-top: 2rem; }
-.tabs-nav {
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.tabs-nav::-webkit-scrollbar { display: none; }
-.tab {
-  background: transparent;
-  border: none;
-  color: var(--fg-muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
-  padding: 0.875rem 1.25rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-.tab:hover { color: var(--fg); }
-.tab.is-active {
-  background: var(--code-bg);
-  color: var(--fg);
-}
-.tabs-panels {
-  background: var(--code-bg);
-  padding: 2.5rem 1.25rem 2rem;
-}
-.tab-panel { display: none; }
-.tab-panel.is-active {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 3rem;
-  align-items: start;
-}
-.tab-panel.is-active > h3 { grid-column: 1 / -1; }
-.tab-panel-body { min-width: 0; }
-.tab-panel-illustration {
-  display: flex;
-  justify-content: flex-end;
-  color: #94a3b8;
-  margin-top: 1rem;
-}
-.tab-panel[data-panel="finance"] .tab-panel-illustration { padding: 0 4.5rem; }
-.tab-panel-illustration svg {
-  width: 100%;
-  height: auto;
-}
-.tab-panel h3 {
-  font-size: clamp(1.375rem, 2.6vw, 1.875rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-.tab-panel p {
-  color: var(--fg-muted);
-  font-size: 0.9375rem;
-  margin-bottom: 1.25rem;
-  max-width: 62ch;
-  line-height: 1.7;
-}
-.tab-panel ul { list-style: none; }
-.tab-panel ul li {
-  padding: 0.4rem 0 0.4rem 1.75rem;
-  position: relative;
-  color: var(--fg-muted);
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-.tab-panel ul li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
 }
 
 /* Benefits list */
@@ -517,29 +321,14 @@ footer a { color: var(--fg-muted); }
 footer a:hover { color: var(--fg); text-decoration: underline; }
 
 /* Responsive */
-@media (max-width: 860px) {
-  .tab-panel.is-active { grid-template-columns: 1fr; row-gap: 1.5rem; }
-  .tab-panel-illustration { justify-content: center; }
-  .tab-panel p { max-width: none; }
-}
 @media (max-width: 720px) {
   .header-brand .eyebrow { display: none; }
   .header-content { padding: 0 1.25rem; }
-  .dsl-row,
-  .dsl-row--reversed { grid-template-columns: 1fr; }
-  .dsl-row--reversed .dsl-code { order: 1; }
-  .dsl-row--reversed .dsl-copy { order: 2; }
   .hero-grid { grid-template-columns: 1fr; column-gap: 0; }
   main { padding: 0 1.25rem; }
   .hero { padding: 5rem 0 4rem; }
   .concepts-grid { grid-template-columns: 1fr; }
   section { padding: 5rem 0; }
   .faq { padding-bottom: 8rem; }
-  .code-block pre { padding: 1rem; font-size: 0.75rem; }
-  .tabs-panels { padding: 2rem 1.25rem 1.5rem; }
-  .tab { padding: 0.75rem 1rem; }
-  .tab-panel.is-active { grid-template-columns: 1fr; row-gap: 1.5rem; }
-  .tab-panel-illustration { justify-content: center; }
-  .time-dim-grid { grid-template-columns: 1fr; row-gap: 2rem; }
   .buttons .btn { flex: 1; justify-content: center; }
 }
